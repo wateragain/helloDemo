@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.annotation.TestAnno;
 import com.example.demo.dto.base.Result;
 import com.example.demo.dto.input.TestInput;
 import org.springframework.validation.annotation.Validated;
@@ -18,6 +19,7 @@ public class ValidatedController {
     @GetMapping("1")
     //get接收对象不能加@RequestParam，会报参数a不存在
     //加在方法上的@Validated无法校验，必须加在参数里
+    @TestAnno(period = 555)
     public Result testValid1(@Validated TestInput a){
         return Result.successRet(a);
     }

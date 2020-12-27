@@ -126,7 +126,7 @@ public class GlobalErrorAdvice {
      * 未授权异常
      * TokenExpiredException.class
      */
-    @ExceptionHandler({AuthenticationException.class, AuthenticationException.class})
+    @ExceptionHandler({AuthenticationException.class})
     public Result unauthenticatedExceptionHandler(Exception ex) {
         return Result.failRet(ResultCode.UNAUTH_ERROR, ex.getMessage());
     }

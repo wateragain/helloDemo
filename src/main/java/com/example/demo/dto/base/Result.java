@@ -1,9 +1,8 @@
 package com.example.demo.dto.base;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter@Setter
+@Data
 public class Result<T> {
 
     private String code;
@@ -36,8 +35,5 @@ public class Result<T> {
 
     public boolean ifSuccess() {
         return ResultCode.SUCCESS.getCode().equals(this.getCode());
-    }
-
-    public Result() {
     }
 }
