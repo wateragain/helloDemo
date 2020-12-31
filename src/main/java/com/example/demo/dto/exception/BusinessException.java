@@ -15,11 +15,11 @@ public class BusinessException extends RuntimeException {
 
     public BusinessException(BaseResultCode errorCode) {
         this.code = errorCode;
-        this.msg=errorCode.getMsg();
+        this.msg = errorCode.getMsg();
     }
 
     public BusinessException(BaseResultCode errorCode, String msg) {
         this.code = errorCode;
-        this.msg=msg;
+        this.msg = msg;
     }
 }

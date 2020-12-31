@@ -1,6 +1,6 @@
 package com.example.demo.dto.base;
 
-public enum ResultCode implements BaseResultCode{
+public enum ResultCode implements BaseResultCode {
 
     SUCCESS("0000", "操作成功"),
     GATEWAY_ERROR("0001", "服务异常"),

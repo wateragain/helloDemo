@@ -37,9 +37,9 @@ public class GlobalErrorAdvice {
     @ExceptionHandler({BindException.class, MethodArgumentNotValidException.class})
     public Result validatedExceptionHandler(Exception ex) {
         List<ObjectError> errors;
-        if(ex instanceof BindException){
+        if (ex instanceof BindException) {
             errors = ((BindException) ex).getBindingResult().getAllErrors();
-        }else {
+        } else {
             errors = ((MethodArgumentNotValidException) ex).getBindingResult().getAllErrors();
         }
         StringBuilder msgBuilder = new StringBuilder(validatedMsg);
@@ -51,8 +51,8 @@ public class GlobalErrorAdvice {
     }
 
     @ExceptionHandler(ConstraintViolationException.class)
-    public Result constraintViolationExceptionHandler(ConstraintViolationException ex){
-        log.info(ex.getMessage());
+    public Result constraintViolationExceptionHandler(ConstraintViolationException ex) {
+        log.info(ExceptionUtil.stacktraceToString(ex));
         return Result.failRet(ResultCode.PARAMS_ERROR);
     }
 
@@ -88,12 +88,12 @@ public class GlobalErrorAdvice {
      */
     @ExceptionHandler({MethodArgumentTypeMismatchException.class, HttpMessageNotReadableException.class})
     public Result methodArgumentTypeMismatchExceptionHandler(Exception ex) {
-        //ex.printStackTrace();
-        log.info(ex.getMessage());
+        log.info(ExceptionUtil.stacktraceToString(ex));
         return Result.failRet(ResultCode.PARAMS_ERROR, "参数类型错误");
     }
 
     //以下是开发时遇见的一些异常
+
     /**
      * 文件过大异常
      */
@@ -107,8 +107,7 @@ public class GlobalErrorAdvice {
      */
     @ExceptionHandler({NumberFormatException.class, ParseException.class})
     public Result numberFormatExceptionHandler(Exception ex) {
-        //ex.printStackTrace();
-        log.info(ex.getMessage());
+        log.info(ExceptionUtil.stacktraceToString(ex));
         return Result.failRet(ResultCode.PARAMS_ERROR, "参数转换失败");
     }
 
@@ -135,8 +134,7 @@ public class GlobalErrorAdvice {
      * 自定义异常
      */
     @ExceptionHandler({BusinessException.class})
-    public Result businessExceptionHandler(BusinessException ex){
-        //ex.printStackTrace();
+    public Result businessExceptionHandler(BusinessException ex) {
         return Result.failRet(ex.getCode(), ex.getMsg());
     }
 

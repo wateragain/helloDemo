@@ -1,5 +1,6 @@
 server:
   port: 8090
+notLogPathStart: "/static,/actuator"
 spring:
   mvc:
     throw-exception-if-no-handler-found: true

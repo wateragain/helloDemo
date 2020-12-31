@@ -26,11 +26,17 @@ import java.time.format.DateTimeFormatter;
 @Configuration
 public class DateFormatterConfig implements WebMvcConfigurer {
 
-    /** 默认日期时间格式 */
+    /**
+     * 默认日期时间格式
+     */
     private static final String DATE_TIME_FORMAT = "yyyy-MM-dd HH:mm:ss";
-    /** 默认日期格式 */
+    /**
+     * 默认日期格式
+     */
     private static final String DATE_FORMAT = "yyyy-MM-dd";
-    /** 默认时间格式 */
+    /**
+     * 默认时间格式
+     */
     private static final String TIME_FORMAT = "HH:mm:ss";
 
     //spring mvc

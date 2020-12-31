@@ -11,7 +11,7 @@ public class Result<T> {
 
     private T data;
 
-    public static <T> Result<T> successRet(T data){
+    public static <T> Result<T> successRet(T data) {
         Result<T> res = new Result<T>();
         res.setCode(ResultCode.SUCCESS.getCode());
         res.setMsg(ResultCode.SUCCESS.getMsg());

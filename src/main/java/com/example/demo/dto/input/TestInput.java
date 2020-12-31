@@ -1,5 +1,6 @@
 package com.example.demo.dto.input;
 
+import com.example.demo.annotation.ValidatedGroup;
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
@@ -12,7 +13,7 @@ import java.util.List;
 @Data
 public class TestInput {
 
-    @NotBlank(message = "请输入字符串")
+    @NotBlank(message = "请输入字符串", groups = ValidatedGroup.Add.class)
     private String str;
 
     private Integer num;
@@ -35,12 +36,12 @@ public class TestInput {
 
     //使用public外部才能去到内部类里的参数
     @Data
-    public class InnerClass{
+    public class InnerClass {
         private String str;
     }
 
     @Data
-    public static class InnerClass2{
+    public static class InnerClass2 {
         private String str;
     }
 }
