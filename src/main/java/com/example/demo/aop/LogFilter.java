@@ -38,6 +38,7 @@ public class LogFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         String path = ((HttpServletRequest) request).getRequestURI();
         boolean needLog = true;
+        //todo 优化
         if (notLogPathStart != null) {
             for (var start : notLogPathStart) {
                 if (path.startsWith(start)) {
